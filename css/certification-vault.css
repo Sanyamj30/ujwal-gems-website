@@ -1,0 +1,172 @@
+/* css/certification-vault.css — Certification Vault section styles */
+/* Covers: grid layout, filter bar, certificate cards, fallback message */
+
+/* ---------------------------------------------------------------
+   Section wrapper
+   --------------------------------------------------------------- */
+#certification-vault {
+  background: var(--color-ivory);
+  padding-block: var(--space-xl);
+}
+
+/* ---------------------------------------------------------------
+   Section heading and intro
+   --------------------------------------------------------------- */
+.cert-vault__heading {
+  color: var(--color-emerald);
+  font-family: var(--font-display);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.cert-vault__intro {
+  text-align: center;
+  color: var(--color-text);
+  margin-bottom: var(--space-lg);
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* ---------------------------------------------------------------
+   Filter bar
+   --------------------------------------------------------------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+
+.filter-btn {
+  padding: var(--space-xs) var(--space-md);
+  border: 2px solid var(--color-emerald);
+  background: transparent;
+  color: var(--color-emerald);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.filter-btn:hover {
+  background: var(--color-emerald);
+  color: var(--color-ivory);
+}
+
+.filter-btn--active,
+.filter-btn[aria-pressed="true"] {
+  background: var(--color-emerald);
+  color: var(--color-ivory);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Mobile: allow horizontal scroll if buttons overflow */
+@media (max-width: 767px) {
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: var(--space-xs);
+    /* Smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .filter-bar::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Certificate grid
+   --------------------------------------------------------------- */
+.cert-grid {
+  display: grid;
+  gap: var(--space-lg);
+  /* Default: 1 column (mobile) */
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1280px) {
+  .cert-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Certificate card
+   --------------------------------------------------------------- */
+.cert-card {
+  background: var(--color-ivory);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow var(--transition-std);
+}
+
+.cert-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 77, 64, 0.15);
+}
+
+.cert-card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert-card {
+    transition: none;
+  }
+}
+
+/* Gold-bordered frame around the certificate thumbnail */
+.cert-card__frame {
+  border: 2px solid var(--color-gold);
+  overflow: hidden;
+}
+
+.cert-card__frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Caption below the thumbnail */
+.cert-card__caption {
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------
+   Fallback message (shown when fetch fails)
+   --------------------------------------------------------------- */
+.cert-grid__fallback {
+  text-align: center;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: var(--space-lg);
+  grid-column: 1 / -1;
+}

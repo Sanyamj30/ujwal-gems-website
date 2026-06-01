@@ -1,0 +1,165 @@
+/* =============================================================
+   css/lightbox.css — Certification Vault lightbox overlay styles
+   ============================================================= */
+
+/* Lightbox overlay — fixed full-screen, centered content */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* When hidden attribute is present, do not display */
+#lightbox[hidden] {
+  display: none;
+}
+
+/* Semi-transparent backdrop */
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+
+/* Floating panel above the backdrop */
+.lightbox__panel {
+  position: relative;
+  z-index: 1;
+  background: var(--color-ivory);
+  border: 2px solid var(--color-gold);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+/* Close button — top-right corner */
+.lightbox__close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--color-emerald);
+  color: var(--color-ivory);
+  border: none;
+  width: 36px;
+  height: 36px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 2px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-fast);
+}
+
+.lightbox__close:hover {
+  opacity: 0.85;
+}
+
+.lightbox__close:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Image container — scrollable/pannable area */
+.lightbox__image-wrap {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  min-height: 0; /* allow flex shrink */
+}
+
+.lightbox__image-wrap:active {
+  cursor: grabbing;
+}
+
+/* Certificate image */
+#lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.1s ease;
+  display: block;
+}
+
+/* Zoom controls bar */
+.lightbox__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-sm);
+  background: var(--color-ivory-dark);
+  flex-shrink: 0;
+}
+
+/* Zoom buttons */
+.lightbox__zoom-out,
+.lightbox__zoom-in {
+  background: transparent;
+  color: var(--color-emerald);
+  border: 2px solid var(--color-emerald);
+  width: 32px;
+  height: 32px;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.lightbox__zoom-out:hover,
+.lightbox__zoom-in:hover {
+  background: var(--color-emerald);
+  color: var(--color-ivory);
+}
+
+.lightbox__zoom-out:focus-visible,
+.lightbox__zoom-in:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Zoom level indicator */
+.lightbox__zoom-level {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  min-width: 4ch;
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* Caption below controls */
+.lightbox__caption {
+  padding: var(--space-sm) var(--space-md);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-ivory);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Reduced motion: disable image transform transition */
+@media (prefers-reduced-motion: reduce) {
+  #lightbox-img {
+    transition: none;
+  }
+}

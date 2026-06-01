@@ -1,0 +1,141 @@
+/* css/layout.css — Grid/flex layout helpers and responsive breakpoint definitions */
+
+/* ============================================================
+   Breakpoints (mobile-first)
+   320px  — mobile
+   768px  — tablet
+   1280px — desktop
+   ============================================================ */
+
+/* ============================================================
+   Container
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-inline: var(--space-xl);
+  }
+}
+
+/* ============================================================
+   Flex helpers
+   ============================================================ */
+.flex {
+  display: flex;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+.flex--col {
+  flex-direction: column;
+}
+
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex--between {
+  justify-content: space-between;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.flex--gap-sm {
+  gap: var(--space-sm);
+}
+
+.flex--gap-md {
+  gap: var(--space-md);
+}
+
+.flex--gap-lg {
+  gap: var(--space-lg);
+}
+
+/* ============================================================
+   Grid helpers
+   ============================================================ */
+.grid {
+  display: grid;
+}
+
+.grid--2col {
+  grid-template-columns: 1fr;
+}
+
+.grid--3col {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid--gap-md {
+  gap: var(--space-md);
+}
+
+.grid--gap-lg {
+  gap: var(--space-lg);
+}
+
+/* ============================================================
+   Section spacing
+   ============================================================ */
+.section {
+  padding-block: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-2xl);
+  }
+}
+
+/* ============================================================
+   Visibility helpers
+   ============================================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

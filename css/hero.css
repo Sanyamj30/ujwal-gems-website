@@ -1,0 +1,133 @@
+/* css/hero.css — Hero section styles */
+
+/* ─── Section container ─────────────────────────────────────────────────────── */
+#hero {
+  position: relative;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ─── Background image ──────────────────────────────────────────────────────── */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/hero/2.png"), url("../images/hero/1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Dark overlay via pseudo-element to ensure text readability */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.55) 60%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  z-index: 0;
+}
+
+/* ─── Content block ─────────────────────────────────────────────────────────── */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--color-ivory);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── Brand title ───────────────────────────────────────────────────────────── */
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem); /* min 48px, scales with viewport, max 96px */
+  font-weight: 700;
+  color: var(--color-ivory);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.6),
+    0 4px 24px rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
+
+/* ─── Tagline ───────────────────────────────────────────────────────────────── */
+.hero__tagline {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--color-ivory);
+  margin-top: var(--space-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ─── CTA button ────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color var(--transition-std),
+              color var(--transition-std),
+              border-color var(--transition-std),
+              box-shadow var(--transition-std);
+}
+
+.btn--gold {
+  background-color: var(--color-gold);
+  color: var(--color-ivory);
+  border-color: var(--color-gold);
+  margin-top: var(--space-lg);
+}
+
+.btn--gold:hover,
+.btn--gold:focus-visible {
+  background-color: transparent;
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.35);
+}
+
+.btn--gold:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ─── Mobile: prevent horizontal scroll, reflow text ───────────────────────── */
+@media (max-width: 767px) {
+  .hero__content {
+    padding: var(--space-md) var(--space-sm);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero__title {
+    word-break: break-word;
+  }
+
+  .btn--gold {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+}

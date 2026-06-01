@@ -1,0 +1,27 @@
+/* css/tokens.css — Design token layer: all CSS custom properties for Ujwal Gems */
+
+:root {
+  /* Brand colors */
+  --color-emerald:    #004D40;
+  --color-gold:       #C9A84C;
+  --color-ivory:      #FFFFF0;
+  --color-ivory-dark: #F5F5DC;   /* subtle card backgrounds */
+  --color-text:       #1A1A1A;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Lato', 'Cormorant Garamond', sans-serif;
+
+  /* Spacing scale (8px base) */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  32px;
+  --space-xl:  64px;
+  --space-2xl: 128px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-std:  200ms ease;
+  --transition-slow: 300ms ease;
+}

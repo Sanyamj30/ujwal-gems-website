@@ -1,0 +1,92 @@
+[
+  {
+    "id": "cert-001",
+    "origin": "zambian",
+    "certifier": "gia",
+    "weightCt": 3.45,
+    "thumbSrc": "images/certificates/cert-001-thumb.webp",
+    "fullSrc": "images/certificates/cert-001-full.webp",
+    "altText": "GIA certificate for a 3.45 carat Zambian natural emerald",
+    "caption": "Verified Natural Emerald – 3.45 ct"
+  },
+  {
+    "id": "cert-002",
+    "origin": "panjshir",
+    "certifier": "igi",
+    "weightCt": 2.10,
+    "thumbSrc": "images/certificates/cert-002-thumb.webp",
+    "fullSrc": "images/certificates/cert-002-full.webp",
+    "altText": "IGI certificate for a 2.10 carat Panjshir natural emerald",
+    "caption": "Verified Natural Emerald – 2.1 ct"
+  },
+  {
+    "id": "cert-003",
+    "origin": "colombian",
+    "certifier": "gia",
+    "weightCt": 5.80,
+    "thumbSrc": "images/certificates/cert-003-thumb.webp",
+    "fullSrc": "images/certificates/cert-003-full.webp",
+    "altText": "GIA certificate for a 5.80 carat Colombian natural emerald",
+    "caption": "Verified Natural Emerald – 5.8 ct"
+  },
+  {
+    "id": "cert-004",
+    "origin": "zambian",
+    "certifier": "jaipur-lab",
+    "weightCt": 1.75,
+    "thumbSrc": "images/certificates/cert-004-thumb.webp",
+    "fullSrc": "images/certificates/cert-004-full.webp",
+    "altText": "Jaipur Lab certificate for a 1.75 carat Zambian natural emerald",
+    "caption": "Verified Natural Emerald – 1.75 ct"
+  },
+  {
+    "id": "cert-005",
+    "origin": "colombian",
+    "certifier": "igi",
+    "weightCt": 4.20,
+    "thumbSrc": "images/certificates/cert-005-thumb.webp",
+    "fullSrc": "images/certificates/cert-005-full.webp",
+    "altText": "IGI certificate for a 4.20 carat Colombian natural emerald",
+    "caption": "Verified Natural Emerald – 4.2 ct"
+  },
+  {
+    "id": "cert-006",
+    "origin": "panjshir",
+    "certifier": "jaipur-lab",
+    "weightCt": 2.95,
+    "thumbSrc": "images/certificates/cert-006-thumb.webp",
+    "fullSrc": "images/certificates/cert-006-full.webp",
+    "altText": "Jaipur Lab certificate for a 2.95 carat Panjshir natural emerald",
+    "caption": "Verified Natural Emerald – 2.95 ct"
+  },
+  {
+    "id": "cert-007",
+    "origin": "colombian",
+    "certifier": "jaipur-lab",
+    "weightCt": 6.50,
+    "thumbSrc": "images/certificates/cert-007-thumb.webp",
+    "fullSrc": "images/certificates/cert-007-full.webp",
+    "altText": "Jaipur Lab certificate for a 6.50 carat Colombian natural emerald",
+    "caption": "Verified Natural Emerald – 6.5 ct"
+  },
+  {
+    "id": "cert-008",
+    "origin": "zambian",
+    "certifier": "igi",
+    "weightCt": 3.10,
+    "thumbSrc": "images/certificates/cert-008-thumb.webp",
+    "fullSrc": "images/certificates/cert-008-full.webp",
+    "altText": "IGI certificate for a 3.10 carat Zambian natural emerald",
+    "caption": "Verified Natural Emerald – 3.1 ct"
+  },
+  {
+    "id": "cert-009",
+    "origin": "panjshir",
+    "certifier": "gia",
+    "weightCt": 1.90,
+    "thumbSrc": "images/certificates/cert-009-thumb.webp",
+    "fullSrc": "images/certificates/cert-009-full.webp",
+    "altText": "GIA certificate for a 1.90 carat Panjshir natural emerald",
+    "caption": "Verified Natural Emerald – 1.9 ct"
+  }
+]

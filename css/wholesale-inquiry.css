@@ -1,0 +1,111 @@
+/* css/wholesale-inquiry.css — Wholesale Inquiry section styles */
+
+/* ── Section wrapper ─────────────────────────────────────────── */
+#wholesale-inquiry {
+  background: var(--color-ivory-dark);
+  padding-block: var(--space-xl);
+}
+
+/* ── Section heading ─────────────────────────────────────────── */
+.inquiry__heading {
+  color: var(--color-emerald);
+  font-family: var(--font-display);
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Trust statement ─────────────────────────────────────────── */
+.inquiry__trust {
+  text-align: center;
+  color: var(--color-text);
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* ── Form container ──────────────────────────────────────────── */
+.inquiry-form {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* ── Field group ─────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+/* ── Labels ──────────────────────────────────────────────────── */
+.inquiry-form label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* ── Inputs, selects, textareas ──────────────────────────────── */
+.inquiry-form input,
+.inquiry-form select,
+.inquiry-form textarea {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--color-ivory-dark);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: white;
+  color: var(--color-text);
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+/* ── Focus states ────────────────────────────────────────────── */
+.inquiry-form input:focus,
+.inquiry-form select:focus,
+.inquiry-form textarea:focus {
+  border-color: var(--color-emerald);
+  outline: none;
+}
+
+/* ── Inline error messages ───────────────────────────────────── */
+.field-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+  min-height: 1.2em; /* reserve space to avoid layout shift */
+}
+
+/* ── Optional label modifier ─────────────────────────────────── */
+.optional-label {
+  font-weight: 400;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+/* ── Submit button group ─────────────────────────────────────── */
+.form-group--submit {
+  margin-top: var(--space-lg);
+}
+
+/* Full-width submit button on mobile */
+@media (max-width: 767px) {
+  .form-group--submit .btn--gold {
+    width: 100%;
+  }
+}
+
+/* ── Confirmation message ────────────────────────────────────── */
+.form-confirmation {
+  background: var(--color-emerald);
+  color: var(--color-ivory);
+  padding: var(--space-md);
+  border-radius: 2px;
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+.form-confirmation p {
+  margin: 0;
+}

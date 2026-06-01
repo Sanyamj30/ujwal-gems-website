@@ -1,0 +1,71 @@
+/* css/heritage.css — Our Heritage section styles */
+
+/* ── Section wrapper ─────────────────────────────────────────────────────── */
+#heritage {
+  background: var(--color-ivory);
+  padding-block: var(--space-xl);
+}
+
+/* ── Two-column grid (desktop: text left, image right) ───────────────────── */
+.heritage__grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* single column by default (mobile-first) */
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+/* Desktop: two equal columns, text column has a minimum width of 480px */
+@media (min-width: 1280px) {
+  .heritage__grid {
+    grid-template-columns: minmax(480px, 1fr) 1fr;
+  }
+}
+
+/* Tablet: two columns without the 480px minimum constraint */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .heritage__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Text column ─────────────────────────────────────────────────────────── */
+.heritage__heading {
+  color: var(--color-emerald);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+.heritage__text p {
+  margin-top: var(--space-md);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ── Image column ────────────────────────────────────────────────────────── */
+.heritage__img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.08);
+  display: block;
+}
+
+/* ── Mobile: single column, image below text ─────────────────────────────── */
+@media (max-width: 767px) {
+  .heritage__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .heritage__text {
+    order: 1;
+  }
+
+  .heritage__image {
+    order: 2;
+  }
+}

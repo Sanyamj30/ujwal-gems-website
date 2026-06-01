@@ -1,0 +1,215 @@
+/* css/base.css — CSS reset, global typography, and utility classes */
+
+/* ============================================================
+   CSS Reset (modern minimal reset)
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Global typography
+   ============================================================ */
+
+/* Headings — Playfair Display */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+h4 {
+  font-size: clamp(1.1rem, 2vw, 1.375rem);
+}
+
+/* Body text — Lato / Cormorant Garamond */
+p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* ============================================================
+   Focus-visible styles for keyboard navigation
+   ============================================================ */
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Remove default focus ring for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ============================================================
+   Button base styles
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color var(--transition-std),
+              color var(--transition-std),
+              border-color var(--transition-std),
+              transform var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Gold CTA button */
+.btn--gold {
+  background-color: var(--color-gold);
+  color: var(--color-ivory);
+  border-color: var(--color-gold);
+}
+
+.btn--gold:hover {
+  background-color: #b8943e;
+  border-color: #b8943e;
+}
+
+/* Outlined emerald button */
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-emerald);
+  border-color: var(--color-emerald);
+}
+
+.btn--outline:hover {
+  background-color: var(--color-emerald);
+  color: var(--color-ivory);
+}
+
+/* ============================================================
+   Utility classes
+   ============================================================ */
+
+/* Text alignment */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* Color utilities */
+.text-emerald { color: var(--color-emerald); }
+.text-gold    { color: var(--color-gold); }
+.text-ivory   { color: var(--color-ivory); }
+
+/* Background utilities */
+.bg-emerald    { background-color: var(--color-emerald); }
+.bg-gold       { background-color: var(--color-gold); }
+.bg-ivory      { background-color: var(--color-ivory); }
+.bg-ivory-dark { background-color: var(--color-ivory-dark); }
+
+/* Spacing utilities */
+.mt-sm  { margin-top: var(--space-sm); }
+.mt-md  { margin-top: var(--space-md); }
+.mt-lg  { margin-top: var(--space-lg); }
+.mt-xl  { margin-top: var(--space-xl); }
+.mb-sm  { margin-bottom: var(--space-sm); }
+.mb-md  { margin-bottom: var(--space-md); }
+.mb-lg  { margin-bottom: var(--space-lg); }
+.mb-xl  { margin-bottom: var(--space-xl); }
+
+/* Display utilities */
+.hidden { display: none !important; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

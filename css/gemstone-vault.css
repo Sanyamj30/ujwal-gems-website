@@ -1,0 +1,84 @@
+/* css/gemstone-vault.css — Gemstone Vault section styles */
+
+/* ── Section wrapper ─────────────────────────────────────── */
+#gemstone-vault {
+  background: var(--color-ivory-dark);
+  padding-block: var(--space-xl);
+}
+
+/* ── Section heading ─────────────────────────────────────── */
+.vault__heading {
+  color: var(--color-emerald);
+  font-family: var(--font-display);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Gem grid — desktop: 3 columns ──────────────────────── */
+.gem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+/* ── Tablet: 2 columns (768px – 1279px) ─────────────────── */
+@media (max-width: 1279px) {
+  .gem-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Mobile: 1 column (< 768px) ─────────────────────────── */
+@media (max-width: 767px) {
+  .gem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Individual card ─────────────────────────────────────── */
+.gem-card {
+  border: 2px solid var(--color-gold);
+  background: var(--color-ivory);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform var(--transition-std), box-shadow var(--transition-std);
+}
+
+.gem-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .gem-card:hover {
+    transform: none;
+  }
+}
+
+/* ── Card image ──────────────────────────────────────────── */
+.gem-card__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Card body ───────────────────────────────────────────── */
+.gem-card__body {
+  padding: var(--space-md);
+}
+
+/* ── Origin heading ──────────────────────────────────────── */
+.gem-card__origin {
+  color: var(--color-emerald);
+  font-family: var(--font-display);
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Description text ────────────────────────────────────── */
+.gem-card__desc {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}

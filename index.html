@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ujwal Gems — Jaipur's finest natural emeralds. Premium Zambian, Panjshir, and Colombian emeralds with GIA, IGI, and Jaipur Lab certification. Wholesale and retail inquiries welcome."
+    />
+    <title>Ujwal Gems — Jaipur's Finest Natural Emeralds</title>
+
+    <!-- Google Fonts: Playfair Display (display/headings) + Lato (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Design token layer -->
+    <link rel="stylesheet" href="css/tokens.css" />
+
+    <!-- Global reset and typography -->
+    <link rel="stylesheet" href="css/base.css" />
+
+    <!-- Layout helpers -->
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- Section styles -->
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/heritage.css" />
+    <link rel="stylesheet" href="css/gemstone-vault.css" />
+    <link rel="stylesheet" href="css/certification-vault.css" />
+    <link rel="stylesheet" href="css/wholesale-inquiry.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+
+    <!-- Certificate modal styles -->
+    <style>
+      /* ── Certificate Section ─────────────────────────────── */
+      #certificate {
+        background: var(--color-ivory);
+        padding-block: var(--space-xl);
+        text-align: center;
+      }
+      .cert-section__heading {
+        color: var(--color-emerald);
+        font-family: var(--font-display);
+        margin-bottom: var(--space-sm);
+      }
+      .cert-section__sub {
+        color: var(--color-text);
+        font-family: var(--font-body);
+        margin-bottom: var(--space-lg);
+        max-width: 600px;
+        margin-inline: auto;
+      }
+      .btn--view-cert {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: var(--color-emerald);
+        color: var(--color-ivory);
+        border: 2px solid var(--color-emerald);
+        padding: var(--space-sm) var(--space-lg);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: background var(--transition-std), color var(--transition-std);
+      }
+      .btn--view-cert:hover {
+        background: transparent;
+        color: var(--color-emerald);
+      }
+      .btn--view-cert:focus-visible {
+        outline: 3px solid var(--color-gold);
+        outline-offset: 3px;
+      }
+
+      /* ── Certificate Modal ───────────────────────────────── */
+      #cert-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #cert-modal[hidden] { display: none; }
+      .cert-modal__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        cursor: pointer;
+      }
+      .cert-modal__panel {
+        position: relative;
+        z-index: 1;
+        background: var(--color-ivory);
+        border: 2px solid var(--color-gold);
+        border-radius: 4px;
+        max-width: 90vw;
+        max-height: 90vh;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .cert-modal__close {
+        position: sticky;
+        top: var(--space-sm);
+        align-self: flex-end;
+        margin: var(--space-sm) var(--space-sm) 0;
+        background: var(--color-emerald);
+        color: var(--color-ivory);
+        border: none;
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
+        line-height: 1;
+        cursor: pointer;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .cert-modal__close:hover { opacity: 0.85; }
+      .cert-modal__close:focus-visible {
+        outline: 2px solid var(--color-gold);
+        outline-offset: 2px;
+      }
+      .cert-modal__img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        display: block;
+        padding: var(--space-md);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- =====================================================
+           Section 1: Hero
+           Full-viewport landing section with macro emerald image,
+           brand name, tagline, and primary CTA.
+           ===================================================== -->
+      <section id="hero" aria-label="Hero">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__content">
+          <h1 class="hero__title">Ujwal Gems</h1>
+          <p class="hero__tagline">Jaipur's Finest Natural Emeralds</p>
+          <a href="#gemstone-vault" class="btn btn--gold">Explore the Vault</a>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           Section 2: Our Heritage
+           Jaipur craftsmanship narrative with supporting imagery.
+           ===================================================== -->
+      <section id="heritage" aria-label="Our Heritage">
+        <div class="container">
+          <div class="heritage__grid">
+            <div class="heritage__text">
+              <h2 class="heritage__heading">Our Heritage</h2>
+              <p>Jaipur has been the beating heart of the world's gemstone trade for over 500 years. Known as the "Gem Capital of the World", the Pink City is home to generations of master craftsmen whose hands have shaped raw stones — plucked from the earth in distant mines — into treasures of extraordinary beauty. This centuries-old tradition of lapidary artistry, passed down through families and guilds, gives Jaipur an unrivalled depth of knowledge and skill that no modern facility can replicate.</p>
+              <p>At Ujwal Gems, we honour that legacy through the way we source. We maintain direct relationships with miners in Zambia's Copperbelt, Afghanistan's Panjshir Valley, and Colombia's legendary Muzo region — the three origins that define the finest emeralds on earth. By working at the source, we ensure every stone that reaches our workshop is ethically sourced, naturally untreated, and accompanied by internationally recognised certification from GIA, IGI, or a trusted Jaipur laboratory. What you receive is not just a gemstone; it is a provenance story you can trust.</p>
+            </div>
+            <div class="heritage__image">
+              <img
+                src="images/heritage/2.png"
+                alt="Artisan craftsmen working with emeralds in a traditional Jaipur gemstone workshop"
+                class="heritage__img"
+                width="600"
+                height="450"
+                loading="lazy"
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           Section 3: Gemstone Vault
+           Three emerald origin cards: Zambian, Panjshir, Colombian.
+           ===================================================== -->
+      <section id="gemstone-vault" aria-label="Gemstone Vault">
+        <div class="container">
+          <h2 class="vault__heading">Gemstone Vault</h2>
+          <div class="gem-grid">
+
+            <article class="gem-card">
+              <div class="gem-card__image-wrap">
+                <img src="images/gemstones/3.png" alt="Deep green Zambian emerald with characteristic inclusions known as jardin" class="gem-card__img" width="400" height="300" loading="lazy">
+              </div>
+              <div class="gem-card__body">
+                <h3 class="gem-card__origin">Zambian Emerald</h3>
+                <p class="gem-card__desc">Mined in Zambia's Copperbelt, these emeralds are prized for their deep, bluish-green hue and exceptional clarity. The cooler tones and high transparency make Zambian stones among the most sought-after in the world. Each stone is hand-selected for colour saturation and natural character.</p>
+              </div>
+            </article>
+
+            <article class="gem-card">
+              <div class="gem-card__image-wrap">
+                <img src="images/gemstones/4.png" alt="Vivid green Panjshir emerald from Afghanistan's Panjhir Valley" class="gem-card__img" width="400" height="300" loading="lazy">
+              </div>
+              <div class="gem-card__body">
+                <h3 class="gem-card__origin">Panjshir Emerald</h3>
+                <p class="gem-card__desc">Sourced from Afghanistan's legendary Panjshir Valley, these emeralds display a vivid, pure green with remarkable transparency. Panjshir stones are relatively new to the international market, yet their exceptional colour and minimal inclusions have already earned them a prestigious reputation among collectors and connoisseurs.</p>
+              </div>
+            </article>
+
+            <article class="gem-card">
+              <div class="gem-card__image-wrap">
+                <img src="images/gemstones/5.png" alt="Classic Colombian emerald with warm green hue from the Muzo mining region" class="gem-card__img" width="400" height="300" loading="lazy">
+              </div>
+              <div class="gem-card__body">
+                <h3 class="gem-card__origin">Colombian Emerald</h3>
+                <p class="gem-card__desc">The benchmark against which all emeralds are measured, Colombian stones from the Muzo and Chivor mines possess a warm, intensely saturated green that is instantly recognisable. Revered for centuries by royalty and collectors alike, Colombian emeralds represent the pinnacle of gemstone heritage and remain the world's most coveted origin.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           Section 4: Certificate
+           Single certificate view with modal popup.
+           ===================================================== -->
+      <section id="certificate" aria-label="Our Certificate">
+        <div class="container">
+          <h2 class="cert-section__heading">Certified Quality</h2>
+          <p class="cert-section__sub">Every emerald from Ujwal Gems is accompanied by a certificate from a recognised gemological authority, verifying its natural origin, weight, and quality.</p>
+          <button
+            class="btn--view-cert"
+            id="view-cert-btn"
+            aria-label="View our gemstone certificate"
+            onclick="document.getElementById('cert-modal').removeAttribute('hidden'); document.body.style.overflow='hidden'; document.getElementById('cert-modal-close').focus();"
+          >
+            <span aria-hidden="true">📜</span> View Our Intern's Certificate
+          </button>
+        </div>
+      </section>
+
+      <!-- Certificate Modal -->
+      <div
+        id="cert-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Gemstone Certificate"
+        hidden
+      >
+        <div
+          class="cert-modal__backdrop"
+          onclick="document.getElementById('cert-modal').setAttribute('hidden',''); document.body.style.overflow=''; document.getElementById('view-cert-btn').focus();"
+          aria-hidden="true"
+        ></div>
+        <div class="cert-modal__panel">
+          <button
+            class="cert-modal__close"
+            id="cert-modal-close"
+            aria-label="Close certificate"
+            onclick="document.getElementById('cert-modal').setAttribute('hidden',''); document.body.style.overflow=''; document.getElementById('view-cert-btn').focus();"
+          >×</button>
+          <img
+            src="images/certificates/10.png"
+            alt="Ujwal Gems gemstone certificate"
+            class="cert-modal__img"
+            width="800"
+            height="1100"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <!-- =====================================================
+           Section 5: Wholesale Inquiry
+           Trade/wholesale inquiry form for dealers.
+           ===================================================== -->
+      <section id="wholesale-inquiry" aria-label="Wholesale Inquiry">
+        <div class="container">
+          <h2 class="inquiry__heading">Wholesale &amp; Trade Inquiries</h2>
+          <p class="inquiry__trust">Your inquiry is confidential and will be responded to within 24 hours.</p>
+          <form class="inquiry-form" id="inquiry-form" novalidate>
+            <div class="form-group">
+              <label for="fullName">Full Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+              <span class="field-error" aria-live="polite" id="fullName-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="businessName">Business Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="businessName" name="businessName" autocomplete="organization" required>
+              <span class="field-error" aria-live="polite" id="businessName-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              <span class="field-error" aria-live="polite" id="phone-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <span class="field-error" aria-live="polite" id="email-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="origin">Emerald Origin of Interest <span aria-hidden="true">*</span></label>
+              <select id="origin" name="origin" required>
+                <option value="">— Select an origin —</option>
+                <option value="zambian">Zambian</option>
+                <option value="panjshir">Panjshir</option>
+                <option value="colombian">Colombian</option>
+                <option value="all">All Origins</option>
+              </select>
+              <span class="field-error" aria-live="polite" id="origin-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="quantity">Estimated Quantity (carats) <span aria-hidden="true">*</span></label>
+              <input type="number" id="quantity" name="quantity" min="0.01" step="0.01" required>
+              <span class="field-error" aria-live="polite" id="quantity-error"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message <span class="optional-label">(optional)</span></label>
+              <textarea id="message" name="message" rows="4"></textarea>
+              <span class="field-error" aria-live="polite" id="message-error"></span>
+            </div>
+            <div class="form-group form-group--submit">
+              <button type="submit" class="btn btn--gold">Send Inquiry</button>
+            </div>
+            <div class="form-confirmation" id="form-confirmation" hidden aria-live="polite">
+              <p>Thank you for your inquiry. We will be in touch within 24 hours.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           Section 6: Contact
+           Office address, map, WhatsApp, phone, email, hours.
+           ===================================================== -->
+      <section id="contact" aria-label="Contact">
+        <div class="container">
+          <h2 class="contact__heading">Contact Us</h2>
+          <div class="contact__grid">
+            <div class="contact__info">
+              <address class="contact__address">
+                <p class="contact__address-name">Ujwal Gems</p>
+                <p>201 Mahaveer Nagar 2<br>Maharani Farm, Durgapura<br>Jaipur, Rajasthan<br>India</p>
+              </address>
+              <ul class="contact__links">
+                <li>
+                  <a href="tel:+919414336569" class="contact__link contact__link--phone" aria-label="Call Ujwal Gems at +91 94143 36569">
+                    <span aria-hidden="true">📞</span> +91 94143 36569
+                  </a>
+                </li>
+                <li class="contact__hours">
+                  <span aria-hidden="true">🕐</span> Monday – Saturday, 10:00 AM – 7:00 PM IST
+                </li>
+              </ul>
+              <a
+                href="https://wa.me/919414336569?text=Hello%20Ujwal%20Gems%2C%20I%20would%20like%20to%20inquire%20about%20your%20emeralds."
+                class="btn btn--gold contact__whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Ujwal Gems on WhatsApp"
+              >
+                <span aria-hidden="true">💬</span> WhatsApp Us
+              </a>
+            </div>
+            <div class="contact__map">
+              <iframe
+                src="https://www.google.com/maps?q=201+Mahaveer+Nagar+2,+Maharani+Farm,+Durgapura,+Jaipur&output=embed"
+                width="600"
+                height="400"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Ujwal Gems office location in Durgapura, Jaipur"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- JS entry point — ES module, deferred -->
+    <script type="module" src="js/main.js" defer></script>
+
+    <!-- Escape key closes certificate modal -->
+    <script>
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          var modal = document.getElementById('cert-modal');
+          if (modal && !modal.hasAttribute('hidden')) {
+            modal.setAttribute('hidden', '');
+            document.body.style.overflow = '';
+            document.getElementById('view-cert-btn').focus();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
